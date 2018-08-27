@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
+using SiteChecker.Web.Authentication;
 using SiteChecker.Web.Models;
 using System.Threading.Tasks;
 using System.Web.Mvc;

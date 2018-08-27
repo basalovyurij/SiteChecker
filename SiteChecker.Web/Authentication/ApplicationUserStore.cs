@@ -1,17 +1,13 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin;
-using Microsoft.Owin.Security;
-using SiteChecker.Web.Models;
-using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity;
 using SiteChecker.Core;
+using SiteChecker.Web.Models;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
-namespace SiteChecker.Web
+namespace SiteChecker.Web.Authentication
 {
-    // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
     public class ApplicationUserStore : IUserStore<ApplicationUser>, IUserPasswordStore<ApplicationUser>, IUserLockoutStore<ApplicationUser, string>, IUserTwoFactorStore<ApplicationUser, string>
     {
         private readonly Dictionary<string, ApplicationUser> _users;
@@ -88,7 +84,7 @@ namespace SiteChecker.Web
 
         public Task<int> GetAccessFailedCountAsync(ApplicationUser user)
         {
-            return Task.FromResult(0); 
+            return Task.FromResult(0);
         }
 
         public Task<bool> GetLockoutEnabledAsync(ApplicationUser user)
@@ -112,20 +108,4 @@ namespace SiteChecker.Web
         }
     }
 
-    public class ApplicationUserManager : UserManager<ApplicationUser>
-    {
-        public ApplicationUserManager(ApplicationUserStore store)
-            : base(store)
-        {
-        }
-    }
-
-    // Configure the application sign-in manager which is used in this application.
-    public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
-    {
-        public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
-            : base(userManager, authenticationManager)
-        {
-        }
-    }
 }

@@ -9,6 +9,6 @@
   "CheckTimeoutInMs": 5000,
   "Urls": [
     "https://ya.ru",
-    "https://ya.ru/404"
+    "https://ya.ru/notfound"
   ]
 }

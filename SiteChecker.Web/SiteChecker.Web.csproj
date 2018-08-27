@@ -175,9 +175,11 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Authentication\ApplicationSignInManager.cs" />
+    <Compile Include="Authentication\ApplicationUserManager.cs" />
+    <Compile Include="Authentication\ApplicationUserStore.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
