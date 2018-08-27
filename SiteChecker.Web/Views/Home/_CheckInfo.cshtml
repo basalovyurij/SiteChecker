@@ -1,0 +1,23 @@
+﻿@model SiteChecker.Web.Models.CheckResultModel[]
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th width="50px"></th>
+            <th>Url</th>
+            <th width="100px"></th>
+            <th width="100px"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var info in Model)
+        {
+            <tr>
+                <td><span class="circle-icon @info.AvaliabilityClass"></span></td>
+                <td>@info.Url</td>
+                <td class="@info.StatusCodeClass">@info.StatusCodeName</td>
+                <td>@info.ResponseTime</td>
+            </tr>
+        }
+    </tbody>
+</table>

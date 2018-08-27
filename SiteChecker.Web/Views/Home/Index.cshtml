@@ -1,0 +1,14 @@
+﻿@using SiteChecker.Core
+
+@section scripts {
+    <script>
+        var checkTime = 100000000;//@(ConfigManager.Get().CheckIntervalInMs / 3);
+    </script>
+    @Scripts.Render("~/bundles/home")
+}
+
+<div id="refreshBtn" class="pull-right">
+    <span class="glyphicon glyphicon-refresh"></span>
+</div>
+<div id="checkResult"></div>
+<div id="loader" class="loader" style="display:none"></div>

@@ -1,0 +1,13 @@
+﻿{
+  "Users": [
+    {
+      "Login": "admin",
+      "Password": "12Qwerty"
+    }
+  ],
+  "CheckIntervalInMs": 60000,
+  "CheckTimeoutInMs": 5000,
+  "Urls": [
+    "https://ya.ru"
+  ]
+}
