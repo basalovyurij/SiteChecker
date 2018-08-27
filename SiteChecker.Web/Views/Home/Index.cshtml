@@ -2,7 +2,7 @@
 
 @section scripts {
     <script>
-        var checkTime = 100000000;//@(ConfigManager.Get().CheckIntervalInMs / 3);
+        var checkTime = @(ConfigManager.Get().CheckIntervalInMs / 3);
     </script>
     @Scripts.Render("~/bundles/home")
 }

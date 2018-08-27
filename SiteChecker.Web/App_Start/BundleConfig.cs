@@ -25,8 +25,8 @@ namespace SiteChecker.Web
             bundles.Add(new ScriptBundle("~/bundles/home").Include(
                       "~/Scripts/home.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/admin").Include(
-                      "~/Scripts/admin.js"));
+            bundles.Add(new ScriptBundle("~/bundles/manage").Include(
+                      "~/Scripts/manage.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

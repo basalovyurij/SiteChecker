@@ -15,7 +15,7 @@ namespace SiteChecker.Core
 
         public static void Save(Config config)
         {
-            File.WriteAllText(_confgiFileName, JsonConvert.SerializeObject(config));
+            File.WriteAllText(_confgiFileName, JsonConvert.SerializeObject(config, Formatting.Indented));
         }
     }
 }

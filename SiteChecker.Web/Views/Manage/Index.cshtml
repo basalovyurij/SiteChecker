@@ -1,0 +1,30 @@
+﻿@section scripts {
+    @Scripts.Render("~/bundles/manage")
+}
+
+<div class="btn btn-success pull-right" id="btnShowAddModal">Добавить</div>
+<div id="list"></div>
+<div id="loader" class="loader" style="display:none"></div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">Добавление</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="Url">Url</label>
+                        <input type="text" class="form-control" id="Url" placeholder="Url" required/>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd">Добавить</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>       
+</div>

@@ -1,0 +1,21 @@
+﻿@model string[]
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Url</th>
+            <th width="100px"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var info in Model)
+        {
+            <tr>
+                <td>@info</td>
+                <td>
+                    <div class="btn btn-primary" onclick="Delele('@info')">Удалить</div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

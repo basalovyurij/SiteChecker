@@ -28,9 +28,12 @@ namespace SiteChecker.Logic.Implementation
             _provider = provider;
             _checkTimeoutMs = config.CheckTimeoutInMs;
             _info = new ConcurrentDictionary<string, SiteCheckInfo>(config.Urls.Select(t => new KeyValuePair<string, SiteCheckInfo>(t, GetDefaultSiteCheckInfo(t))));
+            
+            Task.Factory.StartNew(ReCheck);
 
             _timer = new System.Timers.Timer(config.CheckIntervalInMs);
             _timer.Elapsed += Check;
+            _timer.Start();
         }
 
         public void AddSite(string url)
@@ -108,13 +111,28 @@ namespace SiteChecker.Logic.Implementation
 
             var request = WebRequest.Create(url);
             request.Method = "HEAD";
-            using (var response = request.GetResponse() as HttpWebResponse)
+            try
             {
-                if (response != null)
+                using (var response = request.GetResponse() as HttpWebResponse)
                 {
-                    result = response.StatusCode;
-                    response.Close();
+                    result = GetStatusCode(response);
                 }
+            }
+            catch(WebException e)
+            {
+                result = GetStatusCode(e.Response as HttpWebResponse);
+            }
+
+            return result;
+        }
+
+        private static HttpStatusCode? GetStatusCode(HttpWebResponse response )
+        {
+            HttpStatusCode? result = null;
+            if (response != null)
+            {
+                result = response.StatusCode;
+                response.Close();
             }
 
             return result;
