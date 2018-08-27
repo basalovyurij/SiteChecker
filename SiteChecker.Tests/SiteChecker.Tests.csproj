@@ -35,6 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MSTestHacks, Version=2.3.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTestHacks.2.3.20\lib\net45\MSTestHacks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -50,8 +58,23 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="SiteCheckManagerIntegrationTests.cs" />
+    <Compile Include="SiteCheckProviderUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SiteChecker.Core\SiteChecker.Core.csproj">
+      <Project>{534605F0-529F-4DD8-9FB2-279F297BE02D}</Project>
+      <Name>SiteChecker.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SiteChecker.Logic\SiteChecker.Logic.csproj">
+      <Project>{B417B306-A505-49D0-AB51-2DF8470154A8}</Project>
+      <Name>SiteChecker.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
